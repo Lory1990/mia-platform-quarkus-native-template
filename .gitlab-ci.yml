@@ -1,0 +1,31 @@
+include:
+  - project: "clients/beConsulting/step/cd-ci-templates"
+    file: "java/spring-boot.yml"
+    ref: "main"
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  GIT_DEPTH: 0
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+
+build-jar:
+  image: ghcr.io/graalvm/graalvm-ce:ol7-java11-21.3.3
+  before_script:
+    - yum install wget -y
+    - wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo --no-check-certificate
+    - yum install -y apache-maven
+    - export  GRAALVM_HOME=/opt/graalvm-ce-java11-21.3.3/
+    - gu install native-image
+  script:
+    - mvn package -Pnative -DskipTests
+  artifacts:
+    paths:
+      - ${CI_PROJECT_DIR}/target
+
+build-tags:
+  variables:
+    COMMIT_SHA_FILEPATH: /work/commit.sha
+    
+build-latest:
+  variables:
+    COMMIT_SHA_FILEPATH: /work/commit.sha
