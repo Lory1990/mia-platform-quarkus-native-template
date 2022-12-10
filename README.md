@@ -1,5 +1,5 @@
 # Quarkus Template for Mia Platform
-This is a template to be uesd in Mia Platform console to create a new Java Application using [Quarkus](https://quarkus.io) but is is compiled using [GraalVM](https://www.graalvm.org) in native mode.
+This is a template to be used in Mia Platform console to create a new Java Application using [Quarkus](https://quarkus.io) but it is compiled using [GraalVM](https://www.graalvm.org) in native mode.
 
 
 The microservice comes with hello word endpoint
@@ -21,7 +21,7 @@ Make sure you have installed the following tools
 * [Maven](https://maven.apache.org)
 * [JDK](https://www.oracle.com/java/technologies/downloads/) (Java Development Kit) >= 11
 
-Simply open the application with your favorite IDE (for example [intellJIdea]( https://www.jetbrains.com/idea/)) and use the following commands to download libraries
+Simply open the application with your favorite IDE (for example [intelliJIdea]( https://www.jetbrains.com/idea/)) and use the following commands to download libraries
 ```
 mvn clean
 mvn install
@@ -36,11 +36,11 @@ if you want to run test you can use
 mvn test
 ```
 ## Environment variables
-All variabiles can be customized using `application.properties` files or injecting `UPPERCASE_DASHED_VARIABLES` into Docker container.
+All variables can be customized using `application.properties` files or injecting `UPPERCASE_DASHED_VARIABLES` into Docker container.
 The main variables are:
-* `HTTP_PORT` port of the container - default is 8000
+* `HTTP_PORT` port of the container - default 8000
 
 ## Deploy
-The microservice comes with Build&Deploy gitlab pipeline (see `.gitlab-ci.yml`), simply push the code and tag it when you want to deploy.
+The microservice comes with Build&Deploy GitLab pipeline (see `.gitlab-ci.yml`), simply push the code and tag it when you want to deploy.
 
 The build takes a bit of time (approx 5 mins), this is normal.
