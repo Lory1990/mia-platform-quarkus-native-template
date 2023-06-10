@@ -4,11 +4,11 @@ import io.quarkus.runtime.StartupEvent;
 import io.quarkus.smallrye.openapi.runtime.OpenApiDocumentService;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.enterprise.event.Observes;
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
+import jakarta.enterprise.event.Observes;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.Response;
 
 @Path("/")
 @Slf4j
